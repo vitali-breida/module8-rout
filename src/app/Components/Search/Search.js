@@ -1,20 +1,12 @@
 import { TextField, Box, Button } from "@material-ui/core";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useState } from "react";
-import {
-  searchMovies,
-  fetchMovies
-} from "../../../features/movies/moviesSlice";
+import { Link as RouterLink } from "react-router-dom";
 
 export default function Search() {
   const search = useSelector((state) => state.movies.search);
   const [text, setText] = useState(search);
-  const dispatch = useDispatch();
 
-  const handleSearch = (e) => {
-    dispatch(searchMovies(text));
-    dispatch(fetchMovies());
-  };
   return (
     <Box display="flex" justifyContent="flex-end">
       <Box flexGrow={1}>
@@ -27,7 +19,12 @@ export default function Search() {
           }}
         />
       </Box>
-      <Button color="secondary" variant="contained" onClick={handleSearch}>
+      <Button
+        color="secondary"
+        variant="contained"
+        component={RouterLink}
+        to={"/search/".concat(encodeURIComponent(text))}
+      >
         Search
       </Button>
     </Box>

@@ -6,7 +6,7 @@ import { Link as RouterLink } from "react-router-dom";
 export default () => {
   return (
     <div className="PageNotFound">
-      <Logo align="center" />
+      <Logo />
       <div className="title">Page Not Found</div>
       <div className="code">404</div>
       <div className="button">
