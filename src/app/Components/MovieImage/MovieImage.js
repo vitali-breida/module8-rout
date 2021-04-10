@@ -67,5 +67,5 @@ export default function MovieImage(props) {
 
 MovieImage.propTypes = {
   movieId: PropTypes.number.isRequired,
-  imageUrl: PropTypes.string.isRequired
+  imageUrl: PropTypes.string
 };

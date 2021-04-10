@@ -19,7 +19,7 @@ MovieCard.propTypes = {
   movieId: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   genres: PropTypes.array,
-  imageUrl: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string,
   releaseDate: PropTypes.string.isRequired
 };
 

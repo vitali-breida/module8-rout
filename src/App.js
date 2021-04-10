@@ -1,22 +1,23 @@
-//import "./styles.css";
-import Header from "./app/Containers/Header/Header";
-import Body from "./app/Containers/Body/Body";
-import Footer from "./app/Containers/Footer/Footer";
+import "./styles.css";
 import React from "react";
 import AddMovieDialog from "./app/Components/AddMovieDialog/AddMovieDialog";
 import EditMovieDialog from "./app/Components/EditMovieDialog/EditMovieDialog";
 import DeleteMovieDialog from "./app/Components/DeleteMovieDialog/DeleteMovieDialog";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import PageNotFound from "./app/Pages/PageNotFound/PageNotFound";
+import HomePage from "./app/Pages/HomePage/HomePage";
 
 export default function App() {
   return (
-    <>
-      <Header />
-      <Body />
-      <Footer />
-
+    <Router>
       <AddMovieDialog />
       <EditMovieDialog />
       <DeleteMovieDialog />
-    </>
+
+      <Switch>
+        <Route path="/" exact component={HomePage} />
+        <Route path="*" component={PageNotFound} />
+      </Switch>
+    </Router>
   );
 }

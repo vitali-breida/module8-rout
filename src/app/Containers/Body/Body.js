@@ -3,9 +3,12 @@ import ResultsFilter from "../../Components/ResultsFilter/ResultsFilter";
 import ResultsSort from "../../Components/ResultsSort/ResultsSort";
 import ResultsBody from "../ResultsBody/ResultsBody";
 import Box from "@material-ui/core/Box";
-import ErrorBoundary from "../../Components/ErrorBoundary/ErrorBoundary";
+//import ErrorBoundary from "../../Components/ErrorBoundary/ErrorBoundary";
+import { useSelector } from "react-redux";
+import NoMovieFound from "../../Components/NoMovieFound/NoMovieFound";
 
 export default function Body(props) {
+  const totalCount = useSelector((state) => state.movies.totalCount);
   return (
     <>
       <Box display="flex">
@@ -17,10 +20,14 @@ export default function Body(props) {
         </Box>
       </Box>
 
-      <ErrorBoundary>
-        <ResultsCount />
-        <ResultsBody />
-      </ErrorBoundary>
+      {totalCount > 0 ? (
+        <>
+          <ResultsCount />
+          <ResultsBody />
+        </>
+      ) : (
+        <NoMovieFound />
+      )}
     </>
   );
 }
