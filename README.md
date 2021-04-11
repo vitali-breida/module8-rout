@@ -9,8 +9,8 @@
 Home page
 https://nmph4.csb.app/
 
-Search
+Search (it's accessed by direct link as well)
 https://nmph4.csb.app/search/test
 
-Film id
+Film id (currently works from app, there is a problem with direct link)
 https://nmph4.csb.app/film/485548
