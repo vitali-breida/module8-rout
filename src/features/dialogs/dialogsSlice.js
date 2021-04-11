@@ -25,7 +25,6 @@ export const dialogsSlice = createSlice({
       state.editedMovieId = payload.operation === "open" ? payload.id : null;
     },
     infoMode: (state, action) => {
-      console.log("selected movie in reducer", action.payload);
       let payload = action.payload;
       state.isMovieInfoMode = payload.mode === "on";
       state.selectedMovieId = payload.mode === "on" ? payload.id : null;
