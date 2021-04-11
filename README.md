@@ -1,8 +1,16 @@
-# module7 (Forms)
+# module8 (Routing)
 
-- Forked from the https://github.com/vitali-breida/module6-flux-redux
+- Forked from the https://github.com/vitali-breida/module7-forms
 - Material UI is used
-- formik, yup are used for AddMovie, EditMovie validation/submit
-- Search by keyword added
-- Multiselect for "genres" is implemented
-- Can be verified directly from https://sjiuw.csb.app/
+- 404, HomePage are implemented
+- No results are by default
+- Can be verified directly from
+
+Home page
+https://nmph4.csb.app/
+
+Search
+https://nmph4.csb.app/search/test
+
+Film id
+https://nmph4.csb.app/film/485548
