@@ -1,21 +1,21 @@
 import React, { useState } from "react";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
+import { Menu, MenuItem } from "@material-ui/core";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 import {
   dialogDeleteMovie,
   dialogEditMovie,
-  infoMode,
   selectIsMovieInfoMode,
   selectSelectedMovieId
 } from "../../../features/dialogs/dialogsSlice";
+import { useHistory } from "react-router-dom";
 
 export default function MovieImage(props) {
   const [anchorEl, setAnchorEl] = useState(null);
   const dispatch = useDispatch();
   const isInfoMode = useSelector(selectIsMovieInfoMode);
   const selectedMovieId = useSelector(selectSelectedMovieId);
+  const history = useHistory();
 
   const showMenu = (e) => {
     setAnchorEl(e.currentTarget);
@@ -27,7 +27,13 @@ export default function MovieImage(props) {
 
   const handleClick = (e) => {
     if (!isInfoMode || props.movieId !== selectedMovieId) {
-      dispatch(infoMode({ mode: "on", id: props.movieId }));
+      let nextUrl = "/film/".concat(props.movieId);
+
+      if (history.location.pathname.startsWith("/film")) {
+        history.replace(nextUrl);
+      } else {
+        history.push(nextUrl);
+      }
     } else {
       showMenu(e);
     }

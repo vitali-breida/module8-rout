@@ -4,6 +4,7 @@ import { selectSelectedMovie } from "../../../features/movies/moviesSlice";
 
 export default function MovieInfo(props) {
   const movie = useSelector(selectSelectedMovie);
+  console.log("selected movie", movie);
 
   if (!!movie) {
     return (

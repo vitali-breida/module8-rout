@@ -24,6 +24,7 @@ export default function Search() {
         variant="contained"
         component={RouterLink}
         to={"/search/".concat(encodeURIComponent(text))}
+        disabled={!text}
       >
         Search
       </Button>

@@ -17,6 +17,7 @@ export default function App() {
       <Switch>
         <Route path="/" exact component={HomePage} />
         <Route path="/search/:keyword" component={HomePage} />
+        <Route path="/film/:id" component={HomePage} />
         <Route path="*" component={PageNotFound} />
       </Switch>
     </Router>

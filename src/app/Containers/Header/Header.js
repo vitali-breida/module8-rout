@@ -10,26 +10,52 @@ import { selectIsMovieInfoMode } from "../../../features/dialogs/dialogsSlice";
 export default function Header(props) {
   const isInfoMode = useSelector(selectIsMovieInfoMode);
 
-  if (isInfoMode) {
-    return (
-      <>
-        <Grid container>
-          <Grid item xs={10}>
-            <Logo />
+  console.log("is info mode", isInfoMode);
+
+  // if (isInfoMode) {
+  //   return (
+  //     <>
+  //       <Grid container>
+  //         <Grid item xs={10}>
+  //           <Logo />
+  //         </Grid>
+  //         <Grid item={2}>
+  //           <SearchIcon />
+  //         </Grid>
+  //       </Grid>
+  //       <MovieInfo />
+  //     </>
+  //   );
+  // } else
+  //   return (
+  //     <>
+  //       <Logo />
+  //       <AddMovieButton />
+  //       <Search />
+  //     </>
+  //   );
+
+  return (
+    <>
+      {isInfoMode ? (
+        <>
+          <Grid container>
+            <Grid item xs={10}>
+              <Logo />
+            </Grid>
+            <Grid item={2}>
+              <SearchIcon />
+            </Grid>
           </Grid>
-          <Grid item={2}>
-            <SearchIcon />
-          </Grid>
-        </Grid>
-        <MovieInfo />
-      </>
-    );
-  } else
-    return (
-      <>
-        <Logo />
-        <AddMovieButton />
-        <Search />
-      </>
-    );
+          <MovieInfo />
+        </>
+      ) : (
+        <>
+          <Logo />
+          <AddMovieButton />
+          <Search />
+        </>
+      )}
+    </>
+  );
 }

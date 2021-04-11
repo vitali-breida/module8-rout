@@ -7,11 +7,13 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import {
   selectIsDeleteMovieDialogVisible,
   selectEditedMovieId,
-  dialogDeleteMovie
+  dialogDeleteMovie,
+  infoMode
 } from "../../../features/dialogs/dialogsSlice";
 import { deleteMovie } from "../../../features/movies/moviesSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { unwrapResult } from "@reduxjs/toolkit";
+import { useHistory } from "react-router-dom";
 
 export default function DeleteMovieDialog(props) {
   const isDeleteMovieDialogVisible = useSelector(
@@ -19,15 +21,18 @@ export default function DeleteMovieDialog(props) {
   );
   const movieId = useSelector(selectEditedMovieId);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleClose = (e) => {
     dispatch(dialogDeleteMovie("close"));
+    dispatch(infoMode({ mode: "off" }));
   };
 
   const handleDelete = (e) => {
     const resultAction = dispatch(deleteMovie(movieId));
     unwrapResult(resultAction);
     handleClose(e);
+    history.goBack();
   };
 
   return (

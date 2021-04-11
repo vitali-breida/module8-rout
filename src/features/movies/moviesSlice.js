@@ -86,7 +86,8 @@ export const moviesSlice = createSlice({
     sortBy: sortByDefault,
     totalCount: 0,
     filterBy: [],
-    search: ""
+    search: "",
+    fetchWasRun: false
   },
   reducers: {
     sortMovies: (state, action) => {
@@ -114,6 +115,7 @@ export const moviesSlice = createSlice({
     [fetchMovies.fulfilled]: (state, action) => {
       state.list = action.payload.data;
       state.totalCount = action.payload.totalAmount;
+      state.fetchWasRun = true;
     },
     [addMovie.fulfilled]: (state, action) => {
       state.list.push(action.payload);
